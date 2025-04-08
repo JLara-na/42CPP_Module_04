@@ -1,6 +1,6 @@
 #-----------EXECUTABLE-----------
 
-NAME			:=		Interface&recap
+NAME			:=		Interface
 
 #-----------DIR PATHS------------
 
@@ -12,7 +12,7 @@ INC_DIR			:=		inc/
 
 MAKEFLAGS		:=		--no-print-directory
 CXX = c++
-CXXFLAGS =	-Wall -Wextra -Werror -std=c++98 -I inc
+CXXFLAGS =	-Wall -Wextra -Werror -std=c++98 -fsanitize=address,leak -I inc
 
 #-----------SHORT CUTS-----------
 
@@ -62,7 +62,12 @@ CUSTOM_3		=		\033[38:5:112m
 CUSTOM_4		=		\033[38:5:101m
 
 #---------SRC OBJ DEP INC---------
-SRC_FILES		=		main	\
+SRC_FILES		=		main			\
+						AMateria		\
+						Cure			\
+						Ice				\
+						Character		\
+						MateriaSource	\
 
 SRC 			= 		$(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FILES)))
 OBJ 			= 		$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))

@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateria.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlara-na <jlara-na@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 16:49:34 by jlara-na          #+#    #+#             */
-/*   Updated: 2025/03/28 16:50:44 by jlara-na         ###   ########.fr       */
+/*   Updated: 2025/04/08 05:21:46 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
-# include "ICharacter.hpp"
+# include "IMateriaSource.hpp"
 
-class IMateriaSource
+class MateriaSource : public IMateriaSource
 {
+    private:
+    	AMateria* _templates[4];
     public:
-        virtual ~IMateriaSource() {}
-        virtual void learnMateria(AMateria*) = 0;
-        virtual AMateria* createMateria(std::string const & type) = 0;
+    	MateriaSource();
+    	MateriaSource(const MateriaSource& other);
+    	~MateriaSource();
+
+        MateriaSource& operator=(const MateriaSource& other);
+    	virtual void learnMateria(AMateria* m);
+    	virtual AMateria* createMateria(std::string const & type);
 };

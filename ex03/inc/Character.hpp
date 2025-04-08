@@ -6,7 +6,7 @@
 /*   By: jlara-na <jlara-na@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 21:02:57 by jlara-na          #+#    #+#             */
-/*   Updated: 2025/03/28 16:48:57 by jlara-na         ###   ########.fr       */
+/*   Updated: 2025/04/08 04:35:09 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,14 @@
 
 class Character : public ICharacter
 {
+	private:
+		std::string _name;
+		AMateria	*_inventory[4];
+		int			_usable[4];
+		
 	public:
 		Character();
+		Character(std::string name);
 		Character(const Character& other);
 		~Character();
 
